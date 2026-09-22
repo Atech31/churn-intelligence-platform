@@ -4,8 +4,11 @@ import numpy as np
 import sqlite3
 import plotly.express as px
 import plotly.graph_objects as go
+
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc, accuracy_score, precision_score, recall_score, f1_score
 
 st.set_page_config(
     page_title="Enterprise Churn & Revenue Intelligence Platform",
@@ -63,7 +66,7 @@ st.markdown("""
         letter-spacing: 0.8px;
     }
     
-    /* Profile Box - Clean relative flow */
+    /* Profile Box */
     .user-profile-box {
         margin-top: 25px;
         padding: 12px 14px;
@@ -77,7 +80,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# SIDEBAR NAVIGATION
+# SIDEBAR NAVIGATION & FILE UPLOAD
 # ---------------------------------------------------------
 with st.sidebar:
     st.button("➕ New Analytics Session", use_container_width=True)
@@ -88,6 +91,11 @@ with st.sidebar:
     with col_btn2:
         st.button("📦 Artifacts", use_container_width=True)
         
+    st.markdown('<div class="sidebar-section-header">Data Source Ingestion</div>', unsafe_allow_html=True)
+    
+    uploaded_cust = st.file_uploader("Upload Customers CSV", type=["csv"])
+    uploaded_trans = st.file_uploader("Upload Transactions CSV", type=["csv"])
+    
     st.markdown('<div class="sidebar-section-header">Analytics Views</div>', unsafe_allow_html=True)
     
     nav_selection = st.radio(
@@ -97,14 +105,14 @@ with st.sidebar:
             "📌 Executive Control Panel",
             "📈 Advanced Curves & Analytics",
             "🤖 ML Model Insights & Simulation",
-            "📊 Model Evaluation & Metrics",
+            "📊 Multi-Model Comparison & Metrics",
             "📋 Exportable Cohorts Data"
         ]
     )
     
     st.markdown('<div class="sidebar-section-header">Industrial Engine</div>', unsafe_allow_html=True)
     st.caption("• SQLite Analytics Core")
-    st.caption("• Random Forest Classifier v1.4")
+    st.caption("• Multi-Model Ensembling")
     st.caption("• Live Risk Scoring Active")
     
     st.markdown("""
@@ -114,12 +122,16 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# DATA PIPELINE & ML ENGINE
+# DATA PIPELINE & MULTI-MODEL ENGINE
 # ---------------------------------------------------------
 @st.cache_data
-def load_and_process_data():
-    customers = pd.read_csv("customers.csv")
-    transactions = pd.read_csv("transactions.csv")
+def load_and_process_data(cust_file, trans_file):
+    if cust_file is not None and trans_file is not None:
+        customers = pd.read_csv(cust_file)
+        transactions = pd.read_csv(trans_file)
+    else:
+        customers = pd.read_csv("customers.csv")
+        transactions = pd.read_csv("transactions.csv")
     
     conn = sqlite3.connect(":memory:")
     customers.to_sql("customers", conn, index=False)
@@ -160,14 +172,35 @@ def load_and_process_data():
     rfm_df['Customer_Segment'] = rfm_df.apply(assign_segment, axis=1)
     return rfm_df
 
-rfm_df = load_and_process_data()
+rfm_df = load_and_process_data(uploaded_cust, uploaded_trans)
 
-# ML Model Training
+# ML Training Pipeline for Multiple Models
 X = rfm_df[['age', 'frequency', 'monetary', 'recency']]
 y = rfm_df['is_churned']
-model = RandomForestClassifier(n_estimators=100, random_state=42)
-model.fit(X, y)
-rfm_df['churn_prob'] = model.predict_proba(X)[:, 1]
+
+models = {
+    "Random Forest": RandomForestClassifier(n_estimators=100, random_state=42),
+    "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42),
+    "Logistic Regression": LogisticRegression(max_iter=1000, random_state=42)
+}
+
+model_results = {}
+for name, m in models.items():
+    m.fit(X, y)
+    probs = m.predict_proba(X)[:, 1]
+    preds = m.predict(X)
+    model_results[name] = {
+        "model": m,
+        "probs": probs,
+        "preds": preds,
+        "acc": accuracy_score(y, preds),
+        "prec": precision_score(y, preds, zero_division=0),
+        "rec": recall_score(y, preds, zero_division=0),
+        "f1": f1_score(y, preds, zero_division=0)
+    }
+
+# Default primary model probability for scoring
+rfm_df['churn_prob'] = model_results["Random Forest"]["probs"]
 
 # ---------------------------------------------------------
 # PAGE ROUTING
@@ -183,7 +216,6 @@ if nav_selection == "📌 Executive Control Panel":
     
     st.markdown("---")
     
-    # FEATURE 1: AUTOMATED AI INSIGHT ENGINE
     with st.expander("🤖 **Generate AI Executive Strategy Briefing**", expanded=True):
         highest_churn_channel = rfm_df.groupby('signup_channel')['is_churned'].mean().idxmax()
         at_risk_rev = rfm_df[rfm_df['is_churned'] == 1]['monetary'].sum()
@@ -195,7 +227,6 @@ if nav_selection == "📌 Executive Control Panel":
         * **Retention Core**: **{champions_pct:.1f}%** of the base are Champions. Implementing a loyalty initiative for this segment will protect key recurring revenue.
         """)
         
-        # FEATURE 4: HTML EXECUTIVE REPORT GENERATOR
         html_report = f"""
         <html>
         <head><title>Executive Churn Intelligence Brief</title></head>
@@ -233,7 +264,6 @@ if nav_selection == "📌 Executive Control Panel":
 elif nav_selection == "📈 Advanced Curves & Analytics":
     st.subheader("Industrial Visualization Suite (6 Advanced Analytics Curves)")
     
-    # FEATURE 2: GLOBAL FILTER BAR ACROSS ALL CURVES
     col_f1, col_f2 = st.columns(2)
     selected_tier = col_f1.multiselect("Filter by City Tier", options=rfm_df['city_tier'].unique(), default=rfm_df['city_tier'].unique())
     selected_channel = col_f2.multiselect("Filter by Signup Channel", options=rfm_df['signup_channel'].unique(), default=rfm_df['signup_channel'].unique())
@@ -249,7 +279,6 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
         col_c1, col_c2 = st.columns(2)
         
         with col_c1:
-            # CURVE 1
             st.markdown("### Curve 1: Recency vs Monetary Trajectory")
             fig_c1 = px.scatter(
                 filtered_df, x='recency', y='monetary', color='Customer_Segment', size='frequency',
@@ -258,7 +287,6 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
             )
             st.plotly_chart(fig_c1, use_container_width=True)
             
-            # CURVE 2
             st.markdown("### Curve 2: Pareto Cumulative Revenue Concentration Curve")
             pareto_df = filtered_df.sort_values(by='monetary', ascending=False).reset_index(drop=True)
             pareto_df['cum_revenue'] = pareto_df['monetary'].cumsum() / pareto_df['monetary'].sum() * 100
@@ -273,7 +301,6 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
             fig_c2.add_shape(type="line", x0=20, y0=0, x1=20, y1=100, line=dict(color="Red", dash="dot"))
             st.plotly_chart(fig_c2, use_container_width=True)
 
-            # CURVE 3
             st.markdown("### Curve 3: Recency vs Frequency Risk Heatmap")
             heatmap_data = filtered_df.pivot_table(index='R_Score', columns='F_Score', values='churn_prob', aggfunc='mean')
             fig_c3 = px.imshow(
@@ -283,7 +310,6 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
             st.plotly_chart(fig_c3, use_container_width=True)
 
         with col_c2:
-            # CURVE 4
             st.markdown("### Curve 4: Churn Probability Distribution Density Curve")
             fig_c4 = px.histogram(
                 filtered_df, x='churn_prob', color='is_churned', nbins=30, marginal="box",
@@ -292,7 +318,6 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
             )
             st.plotly_chart(fig_c4, use_container_width=True)
 
-            # CURVE 5
             st.markdown("### Curve 5: Age Bracket Churn Susceptibility Curve")
             age_bins = pd.cut(filtered_df['age'], bins=[18, 25, 35, 50, 65, 80])
             age_churn = filtered_df.groupby(age_bins, observed=False)['is_churned'].mean().reset_index()
@@ -305,9 +330,8 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
             )
             st.plotly_chart(fig_c5, use_container_width=True)
 
-            # CURVE 6
-            st.markdown("### Curve 6: ML Feature Importance Driver Rankings")
-            importances = model.feature_importances_
+            st.markdown("### Curve 6: Random Forest Feature Importance Rankings")
+            importances = model_results["Random Forest"]["model"].feature_importances_
             features = ['Age', 'Frequency', 'Monetary Value', 'Recency']
             fi_df = pd.DataFrame({'Feature': features, 'Importance': importances}).sort_values('Importance', ascending=True)
             
@@ -320,16 +344,19 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
 elif nav_selection == "🤖 ML Model Insights & Simulation":
     st.subheader("Real-Time Churn Risk Simulator Engine")
     
+    selected_sim_model = st.selectbox("Select Prediction Model Engine", options=["Random Forest", "XGBoost", "Logistic Regression"])
+    active_m = model_results[selected_sim_model]["model"]
+    
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
     age_in = col_s1.slider("Age", 18, 80, 28)
     freq_in = col_s2.slider("Orders Count", 1, 30, 2)
     mon_in = col_s3.slider("Total Spend (₹)", 500, 50000, 3500)
     rec_in = col_s4.slider("Recency (Days)", 1, 365, 120)
     
-    pred_prob = model.predict_proba([[age_in, freq_in, mon_in, rec_in]])[0][1]
+    pred_prob = active_m.predict_proba([[age_in, freq_in, mon_in, rec_in]])[0][1]
     
     st.markdown("---")
-    st.markdown(f"### Predicted Churn Risk Index: **{pred_prob * 100:.1f}%**")
+    st.markdown(f"### Predicted Churn Risk ({selected_sim_model}): **{pred_prob * 100:.1f}%**")
     st.progress(float(pred_prob))
     
     if pred_prob >= 0.6:
@@ -337,17 +364,42 @@ elif nav_selection == "🤖 ML Model Insights & Simulation":
     else:
         st.success("✅ **Healthy Customer**: High retention likelihood.")
 
-elif nav_selection == "📊 Model Evaluation & Metrics":
-    st.subheader("Random Forest Model Validation & Performance Diagnostics")
+elif nav_selection == "📊 Multi-Model Comparison & Metrics":
+    st.subheader("Multi-Model Validation & Performance Diagnostics")
     
-    y_pred = model.predict(X)
-    y_prob = rfm_df['churn_prob']
+    # Leaderboard Summary Table
+    metrics_summary = []
+    for m_name, res in model_results.items():
+        metrics_summary.append({
+            "Model Engine": m_name,
+            "Accuracy": f"{res['acc'] * 100:.2f}%",
+            "Precision": f"{res['prec'] * 100:.2f}%",
+            "Recall": f"{res['rec'] * 100:.2f}%",
+            "F1-Score": f"{res['f1'] * 100:.2f}%"
+        })
+    st.markdown("### Model Benchmark Leaderboard")
+    st.table(pd.DataFrame(metrics_summary))
     
     col_m1, col_m2 = st.columns(2)
     
     with col_m1:
-        st.markdown("### Confusion Matrix")
-        cm = confusion_matrix(y, y_pred)
+        st.markdown("### Combined ROC-AUC Curves")
+        fig_roc = go.Figure()
+        
+        for m_name, res in model_results.items():
+            fpr, tpr, _ = roc_curve(y, res['probs'])
+            roc_auc = auc(fpr, tpr)
+            fig_roc.add_trace(go.Scatter(x=fpr, y=tpr, name=f'{m_name} (AUC = {roc_auc:.3f})', mode='lines'))
+            
+        fig_roc.add_trace(go.Scatter(x=[0, 1], y=[0, 1], name='Random Chance', mode='lines', line=dict(color='gray', dash='dash')))
+        fig_roc.update_layout(xaxis_title="False Positive Rate", yaxis_title="True Positive Rate", template="plotly_dark")
+        st.plotly_chart(fig_roc, use_container_width=True)
+        
+    with col_m2:
+        st.markdown("### Confusion Matrix Selector")
+        chosen_cm_model = st.selectbox("View Confusion Matrix for:", options=["Random Forest", "XGBoost", "Logistic Regression"])
+        cm = confusion_matrix(y, model_results[chosen_cm_model]["preds"])
+        
         fig_cm = px.imshow(
             cm, text_auto=True,
             labels=dict(x="Predicted Label", y="Actual Label"),
@@ -357,17 +409,6 @@ elif nav_selection == "📊 Model Evaluation & Metrics":
             template="plotly_dark"
         )
         st.plotly_chart(fig_cm, use_container_width=True)
-        
-    with col_m2:
-        st.markdown("### ROC-AUC Curve")
-        fpr, tpr, _ = roc_curve(y, y_prob)
-        roc_auc = auc(fpr, tpr)
-        
-        fig_roc = go.Figure()
-        fig_roc.add_trace(go.Scatter(x=fpr, y=tpr, name=f'Random Forest (AUC = {roc_auc:.3f})', mode='lines', line=dict(color='#00CC96', width=2)))
-        fig_roc.add_trace(go.Scatter(x=[0, 1], y=[0, 1], name='Random Chance', mode='lines', line=dict(color='gray', dash='dash')))
-        fig_roc.update_layout(xaxis_title="False Positive Rate", yaxis_title="True Positive Rate", template="plotly_dark")
-        st.plotly_chart(fig_roc, use_container_width=True)
 
 elif nav_selection == "📋 Exportable Cohorts Data":
     st.subheader("Raw Customer Base & Risk Ratings")
