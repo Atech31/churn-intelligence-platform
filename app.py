@@ -80,8 +80,7 @@ with st.sidebar:
             "📊 Model Evaluation & Metrics",
             "📋 Exportable Cohorts Data"
         ],
-        label_visibility="collapsed"
-    )
+     )
     
     st.markdown('<div class="sidebar-section-header">Industrial Engine</div>', unsafe_allow_html=True)
     st.caption("• SQLite Analytics Core")
