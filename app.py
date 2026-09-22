@@ -14,14 +14,31 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------
-# CLAUDE-STYLE DARK SIDEBAR & INDUSTRIAL THEME
+# CLAUDE-STYLE DARK SIDEBAR & HIGH-CONTRAST THEME
 # ---------------------------------------------------------
 st.markdown("""
     <style>
+    /* Dark background for sidebar */
     [data-testid="stSidebar"] {
         background-color: #121212 !important;
         border-right: 1px solid #282828 !important;
     }
+    
+    /* Force crisp white text across all sidebar labels, radio titles, and options */
+    [data-testid="stSidebar"] * {
+        color: #FFFFFF !important;
+    }
+    
+    /* Specific radio button text contrast fix */
+    div[role="radiogroup"] label p,
+    div[role="radiogroup"] label span,
+    label[data-baseweb="radio"] * {
+        color: #FFFFFF !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+    }
+    
+    /* Action Buttons in Sidebar */
     .stButton > button {
         background-color: #212121 !important;
         color: #E0E0E0 !important;
@@ -34,24 +51,26 @@ st.markdown("""
         background-color: #2D2D2D !important;
         color: #FFFFFF !important;
     }
+    
+    /* Section Headers */
     .sidebar-section-header {
-        color: #888888;
+        color: #AAAAAA !important;
         font-size: 11px;
-        font-weight: 600;
-        margin-top: 16px;
+        font-weight: 700;
+        margin-top: 18px;
         margin-bottom: 8px;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
     }
+    
+    /* Profile Box - Clean relative flow */
     .user-profile-box {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 21rem;
-        padding: 12px 16px;
-        background-color: #121212;
-        border-top: 1px solid #282828;
-        color: #E0E0E0;
+        margin-top: 25px;
+        padding: 12px 14px;
+        background-color: #1A1A1A;
+        border: 1px solid #282828;
+        border-radius: 8px;
+        color: #E0E0E0 !important;
         font-size: 13px;
     }
     </style>
@@ -72,15 +91,16 @@ with st.sidebar:
     st.markdown('<div class="sidebar-section-header">Analytics Views</div>', unsafe_allow_html=True)
     
     nav_selection = st.radio(
-        label="Navigation",
+        label="Select View",
+        label_visibility="collapsed",
         options=[
             "📌 Executive Control Panel",
             "📈 Advanced Curves & Analytics",
-            "🔮 ML Model Insights & Simulation",
+            "🤖 ML Model Insights & Simulation",
             "📊 Model Evaluation & Metrics",
             "📋 Exportable Cohorts Data"
-        ],
-     )
+        ]
+    )
     
     st.markdown('<div class="sidebar-section-header">Industrial Engine</div>', unsafe_allow_html=True)
     st.caption("• SQLite Analytics Core")
@@ -170,8 +190,8 @@ if nav_selection == "📌 Executive Control Panel":
         champions_pct = (rfm_df['Customer_Segment'] == 'Champions').mean() * 100
         
         st.markdown(f"""
-        * **Revenue Alert**: **₹{at_risk_rev:,.2f}** is currently at high risk of churn across inactive cohorts[cite: 6].
-        * **Acquisition Efficiency**: **{highest_churn_channel}** exhibits the highest churn rate[cite: 6]. Recommend reallocating marketing spend to organic/referral channels.
+        * **Revenue Alert**: **₹{at_risk_rev:,.2f}** is currently at high risk of churn across inactive cohorts.
+        * **Acquisition Efficiency**: **{highest_churn_channel}** exhibits the highest churn rate. Recommend reallocating marketing spend to organic/referral channels.
         * **Retention Core**: **{champions_pct:.1f}%** of the base are Champions. Implementing a loyalty initiative for this segment will protect key recurring revenue.
         """)
         
@@ -297,7 +317,7 @@ elif nav_selection == "📈 Advanced Curves & Analytics":
             )
             st.plotly_chart(fig_c6, use_container_width=True)
 
-elif nav_selection == "🔮 ML Model Insights & Simulation":
+elif nav_selection == "🤖 ML Model Insights & Simulation":
     st.subheader("Real-Time Churn Risk Simulator Engine")
     
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
@@ -317,7 +337,6 @@ elif nav_selection == "🔮 ML Model Insights & Simulation":
     else:
         st.success("✅ **Healthy Customer**: High retention likelihood.")
 
-# FEATURE 3: MODEL EVALUATION & DIAGNOSTICS TAB
 elif nav_selection == "📊 Model Evaluation & Metrics":
     st.subheader("Random Forest Model Validation & Performance Diagnostics")
     
