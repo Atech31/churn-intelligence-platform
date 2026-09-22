@@ -1,0 +1,501 @@
+customer_id,signup_date,gender,age,city_tier,signup_channel
+CUST_1000,2025-04-13,Male,58,Tier 1,Paid Ads
+CUST_1001,2025-12-15,Female,29,Tier 2,Organic Direct
+CUST_1002,2025-09-28,Male,43,Tier 2,Organic Direct
+CUST_1003,2025-04-17,Female,63,Tier 3,Referral
+CUST_1004,2025-03-13,Female,51,Tier 1,Social Media
+CUST_1005,2025-07-08,Female,31,Tier 1,Organic Direct
+CUST_1006,2025-01-21,Male,43,Tier 1,Social Media
+CUST_1007,2025-04-13,Female,62,Tier 3,Paid Ads
+CUST_1008,2025-05-02,Female,44,Tier 3,Organic Direct
+CUST_1009,2025-08-03,Female,26,Tier 2,Referral
+CUST_1010,2025-11-27,Female,43,Tier 2,Paid Ads
+CUST_1011,2025-03-29,Male,64,Tier 2,Referral
+CUST_1012,2025-04-10,Female,39,Tier 1,Paid Ads
+CUST_1013,2025-12-26,Male,64,Tier 3,Organic Direct
+CUST_1014,2025-06-01,Male,47,Tier 2,Referral
+CUST_1015,2025-05-11,Male,60,Tier 1,Referral
+CUST_1016,2025-05-30,Male,34,Tier 2,Paid Ads
+CUST_1017,2025-11-05,Male,43,Tier 1,Referral
+CUST_1018,2025-09-15,Male,53,Tier 1,Paid Ads
+CUST_1019,2025-12-10,Female,18,Tier 2,Paid Ads
+CUST_1020,2025-10-21,Male,25,Tier 1,Paid Ads
+CUST_1021,2025-07-11,Male,52,Tier 2,Paid Ads
+CUST_1022,2025-10-04,Male,32,Tier 1,Organic Direct
+CUST_1023,2025-06-10,Female,64,Tier 1,Paid Ads
+CUST_1024,2025-11-10,Female,39,Tier 1,Social Media
+CUST_1025,2025-01-22,Male,31,Tier 1,Referral
+CUST_1026,2025-09-10,Female,43,Tier 2,Social Media
+CUST_1027,2025-08-24,Male,45,Tier 1,Organic Direct
+CUST_1028,2025-12-11,Male,40,Tier 2,Social Media
+CUST_1029,2025-02-18,Female,31,Tier 2,Referral
+CUST_1030,2025-02-28,Male,41,Tier 2,Social Media
+CUST_1031,2025-06-19,Female,19,Tier 3,Organic Direct
+CUST_1032,2025-07-07,Female,62,Tier 2,Paid Ads
+CUST_1033,2025-09-28,Male,43,Tier 1,Social Media
+CUST_1034,2025-07-09,Male,31,Tier 1,Organic Direct
+CUST_1035,2025-06-24,Female,24,Tier 1,Organic Direct
+CUST_1036,2025-02-20,Male,20,Tier 2,Referral
+CUST_1037,2025-12-30,Male,64,Tier 1,Referral
+CUST_1038,2025-02-24,Male,40,Tier 2,Social Media
+CUST_1039,2025-09-01,Female,63,Tier 2,Paid Ads
+CUST_1040,2025-11-16,Female,60,Tier 1,Organic Direct
+CUST_1041,2025-05-11,Male,64,Tier 3,Social Media
+CUST_1042,2025-11-03,Female,62,Tier 1,Organic Direct
+CUST_1043,2025-05-15,Female,35,Tier 1,Organic Direct
+CUST_1044,2025-01-21,Female,55,Tier 2,Paid Ads
+CUST_1045,2025-11-25,Female,52,Tier 2,Paid Ads
+CUST_1046,2025-06-16,Female,32,Tier 2,Social Media
+CUST_1047,2025-10-01,Male,42,Tier 2,Paid Ads
+CUST_1048,2025-03-30,Male,54,Tier 1,Paid Ads
+CUST_1049,2025-11-12,Male,45,Tier 3,Social Media
+CUST_1050,2025-01-14,Female,27,Tier 3,Paid Ads
+CUST_1051,2025-08-30,Female,56,Tier 2,Referral
+CUST_1052,2025-09-22,Male,34,Tier 1,Organic Direct
+CUST_1053,2025-12-12,Female,56,Tier 2,Organic Direct
+CUST_1054,2025-02-22,Male,39,Tier 1,Organic Direct
+CUST_1055,2025-12-06,Male,43,Tier 1,Organic Direct
+CUST_1056,2025-04-02,Male,61,Tier 3,Social Media
+CUST_1057,2025-09-21,Female,42,Tier 1,Organic Direct
+CUST_1058,2025-02-04,Female,34,Tier 3,Organic Direct
+CUST_1059,2025-07-25,Male,30,Tier 2,Organic Direct
+CUST_1060,2025-03-22,Male,37,Tier 1,Organic Direct
+CUST_1061,2025-02-19,Male,42,Tier 2,Referral
+CUST_1062,2025-12-26,Male,21,Tier 3,Organic Direct
+CUST_1063,2025-01-02,Female,27,Tier 2,Referral
+CUST_1064,2025-02-23,Female,20,Tier 3,Social Media
+CUST_1065,2025-04-16,Male,58,Tier 2,Paid Ads
+CUST_1066,2025-09-17,Male,62,Tier 2,Organic Direct
+CUST_1067,2025-11-06,Female,35,Tier 3,Paid Ads
+CUST_1068,2025-07-10,Female,64,Tier 1,Paid Ads
+CUST_1069,2025-08-06,Male,53,Tier 2,Social Media
+CUST_1070,2025-02-13,Male,64,Tier 1,Paid Ads
+CUST_1071,2025-06-11,Male,39,Tier 3,Referral
+CUST_1072,2025-07-21,Female,51,Tier 3,Paid Ads
+CUST_1073,2025-09-27,Female,64,Tier 1,Paid Ads
+CUST_1074,2025-12-17,Female,25,Tier 2,Paid Ads
+CUST_1075,2025-10-31,Male,57,Tier 3,Organic Direct
+CUST_1076,2025-09-28,Male,61,Tier 1,Organic Direct
+CUST_1077,2025-08-03,Female,36,Tier 2,Referral
+CUST_1078,2025-09-09,Female,59,Tier 3,Referral
+CUST_1079,2025-07-09,Male,58,Tier 1,Organic Direct
+CUST_1080,2025-10-23,Female,54,Tier 2,Referral
+CUST_1081,2025-08-01,Female,23,Tier 1,Organic Direct
+CUST_1082,2025-07-27,Male,43,Tier 3,Social Media
+CUST_1083,2025-08-25,Female,51,Tier 3,Paid Ads
+CUST_1084,2025-12-04,Male,62,Tier 3,Paid Ads
+CUST_1085,2025-02-22,Male,23,Tier 2,Referral
+CUST_1086,2025-10-07,Male,54,Tier 3,Organic Direct
+CUST_1087,2025-08-05,Male,50,Tier 3,Organic Direct
+CUST_1088,2025-09-09,Male,39,Tier 1,Referral
+CUST_1089,2025-07-07,Male,38,Tier 3,Organic Direct
+CUST_1090,2025-02-10,Male,23,Tier 1,Social Media
+CUST_1091,2025-06-06,Female,23,Tier 2,Paid Ads
+CUST_1092,2025-01-15,Male,21,Tier 1,Referral
+CUST_1093,2025-10-28,Male,47,Tier 1,Referral
+CUST_1094,2025-03-06,Female,28,Tier 1,Organic Direct
+CUST_1095,2025-12-11,Female,47,Tier 2,Referral
+CUST_1096,2025-11-23,Female,48,Tier 1,Social Media
+CUST_1097,2025-01-09,Male,41,Tier 2,Organic Direct
+CUST_1098,2025-12-10,Female,26,Tier 1,Organic Direct
+CUST_1099,2025-05-09,Male,20,Tier 1,Organic Direct
+CUST_1100,2025-05-16,Male,48,Tier 2,Organic Direct
+CUST_1101,2025-03-04,Male,57,Tier 3,Social Media
+CUST_1102,2025-05-19,Male,54,Tier 1,Organic Direct
+CUST_1103,2025-03-22,Female,53,Tier 2,Referral
+CUST_1104,2025-06-12,Female,41,Tier 3,Social Media
+CUST_1105,2025-10-16,Male,48,Tier 2,Paid Ads
+CUST_1106,2025-09-18,Male,23,Tier 1,Paid Ads
+CUST_1107,2025-08-19,Male,19,Tier 1,Referral
+CUST_1108,2025-02-10,Female,37,Tier 3,Referral
+CUST_1109,2025-01-28,Male,45,Tier 1,Social Media
+CUST_1110,2025-05-15,Male,28,Tier 3,Paid Ads
+CUST_1111,2025-07-20,Female,21,Tier 2,Paid Ads
+CUST_1112,2025-11-24,Female,32,Tier 3,Paid Ads
+CUST_1113,2025-09-25,Male,23,Tier 3,Paid Ads
+CUST_1114,2025-02-02,Female,47,Tier 3,Paid Ads
+CUST_1115,2025-02-17,Female,55,Tier 1,Organic Direct
+CUST_1116,2025-03-03,Male,19,Tier 3,Referral
+CUST_1117,2025-08-04,Female,32,Tier 2,Organic Direct
+CUST_1118,2025-10-20,Male,28,Tier 2,Paid Ads
+CUST_1119,2025-04-09,Female,25,Tier 2,Social Media
+CUST_1120,2025-06-21,Male,43,Tier 3,Social Media
+CUST_1121,2025-12-26,Male,62,Tier 3,Paid Ads
+CUST_1122,2025-08-02,Male,61,Tier 3,Paid Ads
+CUST_1123,2025-02-04,Female,22,Tier 2,Social Media
+CUST_1124,2025-08-15,Male,23,Tier 2,Organic Direct
+CUST_1125,2025-04-11,Female,43,Tier 2,Organic Direct
+CUST_1126,2025-05-11,Male,21,Tier 1,Paid Ads
+CUST_1127,2025-09-14,Male,36,Tier 1,Organic Direct
+CUST_1128,2025-01-05,Female,37,Tier 1,Social Media
+CUST_1129,2025-08-06,Male,50,Tier 1,Organic Direct
+CUST_1130,2025-09-12,Male,37,Tier 1,Paid Ads
+CUST_1131,2025-12-25,Female,29,Tier 1,Social Media
+CUST_1132,2025-10-10,Male,64,Tier 1,Organic Direct
+CUST_1133,2025-07-26,Male,18,Tier 1,Referral
+CUST_1134,2025-01-15,Male,43,Tier 3,Social Media
+CUST_1135,2025-12-12,Male,31,Tier 2,Social Media
+CUST_1136,2025-02-11,Female,55,Tier 1,Referral
+CUST_1137,2025-06-28,Female,54,Tier 2,Referral
+CUST_1138,2025-03-04,Male,28,Tier 1,Social Media
+CUST_1139,2025-12-18,Female,53,Tier 3,Referral
+CUST_1140,2025-08-19,Male,30,Tier 3,Paid Ads
+CUST_1141,2025-08-29,Female,60,Tier 1,Paid Ads
+CUST_1142,2025-02-21,Male,20,Tier 2,Paid Ads
+CUST_1143,2025-04-06,Male,50,Tier 3,Social Media
+CUST_1144,2025-08-10,Male,23,Tier 3,Referral
+CUST_1145,2025-08-19,Male,27,Tier 2,Referral
+CUST_1146,2025-08-25,Male,22,Tier 2,Organic Direct
+CUST_1147,2025-05-23,Male,40,Tier 1,Organic Direct
+CUST_1148,2025-06-20,Female,27,Tier 3,Referral
+CUST_1149,2025-01-29,Male,61,Tier 1,Referral
+CUST_1150,2025-02-05,Female,19,Tier 3,Referral
+CUST_1151,2025-01-13,Male,30,Tier 2,Social Media
+CUST_1152,2025-06-09,Female,57,Tier 2,Referral
+CUST_1153,2025-11-23,Female,19,Tier 2,Organic Direct
+CUST_1154,2025-07-06,Female,37,Tier 1,Social Media
+CUST_1155,2025-08-31,Male,18,Tier 1,Referral
+CUST_1156,2025-03-27,Male,54,Tier 1,Organic Direct
+CUST_1157,2025-10-11,Female,26,Tier 1,Social Media
+CUST_1158,2025-03-07,Male,34,Tier 3,Referral
+CUST_1159,2025-06-19,Female,26,Tier 1,Referral
+CUST_1160,2025-02-14,Male,28,Tier 1,Referral
+CUST_1161,2025-03-03,Female,32,Tier 3,Social Media
+CUST_1162,2025-05-14,Female,41,Tier 3,Organic Direct
+CUST_1163,2025-10-11,Male,55,Tier 3,Organic Direct
+CUST_1164,2025-01-28,Female,52,Tier 3,Paid Ads
+CUST_1165,2025-04-18,Male,47,Tier 1,Referral
+CUST_1166,2025-02-13,Female,48,Tier 1,Paid Ads
+CUST_1167,2025-12-06,Female,22,Tier 3,Paid Ads
+CUST_1168,2025-10-13,Male,61,Tier 2,Organic Direct
+CUST_1169,2025-11-27,Male,31,Tier 1,Social Media
+CUST_1170,2025-05-08,Male,28,Tier 3,Social Media
+CUST_1171,2025-12-14,Female,26,Tier 1,Organic Direct
+CUST_1172,2025-08-19,Male,51,Tier 1,Social Media
+CUST_1173,2025-07-09,Female,29,Tier 2,Paid Ads
+CUST_1174,2025-08-13,Female,52,Tier 2,Referral
+CUST_1175,2025-10-10,Male,52,Tier 2,Organic Direct
+CUST_1176,2025-05-01,Male,18,Tier 1,Referral
+CUST_1177,2025-04-26,Female,57,Tier 3,Social Media
+CUST_1178,2025-08-21,Female,39,Tier 1,Referral
+CUST_1179,2025-09-16,Male,46,Tier 1,Social Media
+CUST_1180,2025-12-25,Male,25,Tier 3,Social Media
+CUST_1181,2025-07-17,Male,28,Tier 3,Paid Ads
+CUST_1182,2025-05-17,Male,58,Tier 3,Social Media
+CUST_1183,2025-11-14,Male,54,Tier 3,Paid Ads
+CUST_1184,2025-06-14,Female,31,Tier 2,Paid Ads
+CUST_1185,2025-08-13,Female,47,Tier 2,Paid Ads
+CUST_1186,2025-11-03,Female,52,Tier 1,Organic Direct
+CUST_1187,2025-08-22,Female,38,Tier 2,Organic Direct
+CUST_1188,2025-06-21,Male,54,Tier 1,Social Media
+CUST_1189,2025-06-01,Male,22,Tier 1,Paid Ads
+CUST_1190,2025-11-11,Male,36,Tier 2,Organic Direct
+CUST_1191,2025-06-09,Female,31,Tier 2,Paid Ads
+CUST_1192,2025-04-06,Female,43,Tier 1,Referral
+CUST_1193,2025-08-21,Male,21,Tier 1,Referral
+CUST_1194,2025-06-29,Male,42,Tier 2,Referral
+CUST_1195,2025-04-23,Female,62,Tier 1,Social Media
+CUST_1196,2025-11-14,Female,59,Tier 3,Paid Ads
+CUST_1197,2025-02-21,Male,42,Tier 2,Referral
+CUST_1198,2025-09-25,Male,35,Tier 2,Organic Direct
+CUST_1199,2025-10-22,Female,57,Tier 2,Referral
+CUST_1200,2025-04-23,Male,25,Tier 3,Referral
+CUST_1201,2025-04-11,Male,56,Tier 1,Referral
+CUST_1202,2025-04-23,Male,57,Tier 2,Social Media
+CUST_1203,2025-03-22,Female,31,Tier 2,Organic Direct
+CUST_1204,2025-07-06,Female,49,Tier 1,Paid Ads
+CUST_1205,2025-04-23,Female,55,Tier 3,Organic Direct
+CUST_1206,2025-01-02,Female,50,Tier 3,Paid Ads
+CUST_1207,2025-05-10,Female,40,Tier 2,Social Media
+CUST_1208,2025-08-08,Female,32,Tier 3,Social Media
+CUST_1209,2025-02-23,Female,50,Tier 3,Social Media
+CUST_1210,2025-12-09,Male,42,Tier 2,Social Media
+CUST_1211,2025-08-12,Male,34,Tier 3,Paid Ads
+CUST_1212,2025-08-13,Male,50,Tier 2,Referral
+CUST_1213,2025-05-06,Male,64,Tier 2,Paid Ads
+CUST_1214,2025-05-10,Male,19,Tier 2,Organic Direct
+CUST_1215,2025-02-22,Male,31,Tier 3,Social Media
+CUST_1216,2025-06-21,Male,57,Tier 1,Social Media
+CUST_1217,2025-08-06,Female,57,Tier 3,Organic Direct
+CUST_1218,2025-06-09,Female,56,Tier 3,Paid Ads
+CUST_1219,2025-07-17,Male,23,Tier 1,Referral
+CUST_1220,2025-09-04,Male,23,Tier 3,Referral
+CUST_1221,2025-11-20,Female,20,Tier 1,Organic Direct
+CUST_1222,2025-07-22,Male,24,Tier 1,Referral
+CUST_1223,2025-07-03,Male,25,Tier 2,Paid Ads
+CUST_1224,2025-05-03,Female,59,Tier 1,Paid Ads
+CUST_1225,2025-09-12,Male,32,Tier 3,Organic Direct
+CUST_1226,2025-10-21,Female,64,Tier 3,Paid Ads
+CUST_1227,2025-10-07,Male,46,Tier 2,Social Media
+CUST_1228,2025-11-21,Female,50,Tier 1,Organic Direct
+CUST_1229,2025-04-08,Female,47,Tier 1,Paid Ads
+CUST_1230,2025-07-17,Female,56,Tier 2,Organic Direct
+CUST_1231,2025-08-28,Male,44,Tier 3,Referral
+CUST_1232,2025-05-24,Female,53,Tier 2,Paid Ads
+CUST_1233,2025-04-07,Male,46,Tier 1,Social Media
+CUST_1234,2025-07-20,Male,55,Tier 2,Paid Ads
+CUST_1235,2025-05-04,Male,50,Tier 2,Organic Direct
+CUST_1236,2025-07-06,Male,54,Tier 3,Organic Direct
+CUST_1237,2025-11-22,Female,44,Tier 1,Paid Ads
+CUST_1238,2025-12-15,Female,50,Tier 3,Social Media
+CUST_1239,2025-09-16,Male,21,Tier 2,Social Media
+CUST_1240,2025-05-28,Male,39,Tier 3,Social Media
+CUST_1241,2025-09-09,Female,19,Tier 1,Organic Direct
+CUST_1242,2025-12-12,Male,27,Tier 2,Paid Ads
+CUST_1243,2025-05-27,Female,22,Tier 3,Referral
+CUST_1244,2025-05-28,Male,27,Tier 1,Organic Direct
+CUST_1245,2025-12-18,Male,50,Tier 3,Social Media
+CUST_1246,2025-07-18,Female,55,Tier 2,Paid Ads
+CUST_1247,2025-11-04,Male,30,Tier 1,Social Media
+CUST_1248,2025-05-08,Female,48,Tier 1,Referral
+CUST_1249,2025-02-08,Male,64,Tier 2,Social Media
+CUST_1250,2025-12-04,Male,53,Tier 1,Social Media
+CUST_1251,2025-12-26,Male,62,Tier 2,Referral
+CUST_1252,2025-05-09,Female,41,Tier 1,Paid Ads
+CUST_1253,2025-09-24,Male,32,Tier 2,Organic Direct
+CUST_1254,2025-05-31,Male,46,Tier 1,Paid Ads
+CUST_1255,2025-10-25,Male,25,Tier 3,Referral
+CUST_1256,2025-04-09,Male,22,Tier 3,Social Media
+CUST_1257,2025-09-20,Female,46,Tier 3,Paid Ads
+CUST_1258,2025-09-09,Female,64,Tier 2,Organic Direct
+CUST_1259,2025-05-24,Male,21,Tier 1,Referral
+CUST_1260,2025-12-12,Female,29,Tier 3,Paid Ads
+CUST_1261,2025-04-22,Male,62,Tier 1,Organic Direct
+CUST_1262,2025-03-01,Male,19,Tier 1,Referral
+CUST_1263,2025-01-02,Male,44,Tier 1,Organic Direct
+CUST_1264,2025-10-31,Female,48,Tier 2,Referral
+CUST_1265,2025-09-11,Female,53,Tier 3,Social Media
+CUST_1266,2025-05-20,Female,53,Tier 2,Paid Ads
+CUST_1267,2025-02-06,Female,43,Tier 2,Organic Direct
+CUST_1268,2025-06-09,Female,60,Tier 1,Referral
+CUST_1269,2025-01-09,Female,44,Tier 3,Organic Direct
+CUST_1270,2025-08-21,Female,22,Tier 2,Organic Direct
+CUST_1271,2025-04-09,Female,37,Tier 2,Paid Ads
+CUST_1272,2025-05-27,Female,28,Tier 1,Social Media
+CUST_1273,2025-10-31,Male,27,Tier 3,Organic Direct
+CUST_1274,2025-07-27,Female,57,Tier 2,Referral
+CUST_1275,2025-05-11,Female,55,Tier 1,Referral
+CUST_1276,2025-06-01,Female,23,Tier 1,Social Media
+CUST_1277,2025-02-23,Female,25,Tier 2,Referral
+CUST_1278,2025-04-30,Female,40,Tier 2,Social Media
+CUST_1279,2025-06-10,Female,64,Tier 1,Referral
+CUST_1280,2025-04-26,Female,43,Tier 3,Paid Ads
+CUST_1281,2025-03-16,Female,63,Tier 1,Organic Direct
+CUST_1282,2025-04-23,Female,60,Tier 2,Paid Ads
+CUST_1283,2025-04-14,Female,29,Tier 3,Organic Direct
+CUST_1284,2025-12-06,Female,43,Tier 2,Organic Direct
+CUST_1285,2025-09-11,Male,30,Tier 2,Organic Direct
+CUST_1286,2025-08-15,Male,57,Tier 1,Paid Ads
+CUST_1287,2025-04-22,Female,35,Tier 1,Organic Direct
+CUST_1288,2025-04-09,Female,42,Tier 3,Paid Ads
+CUST_1289,2025-06-02,Male,50,Tier 2,Social Media
+CUST_1290,2025-12-15,Female,64,Tier 3,Referral
+CUST_1291,2025-12-04,Male,57,Tier 1,Referral
+CUST_1292,2025-07-13,Male,60,Tier 1,Organic Direct
+CUST_1293,2025-11-06,Male,29,Tier 1,Paid Ads
+CUST_1294,2025-06-12,Male,61,Tier 2,Referral
+CUST_1295,2025-07-27,Male,53,Tier 1,Paid Ads
+CUST_1296,2025-06-18,Female,21,Tier 3,Paid Ads
+CUST_1297,2025-06-10,Male,22,Tier 2,Organic Direct
+CUST_1298,2025-03-09,Female,54,Tier 3,Referral
+CUST_1299,2025-10-16,Female,25,Tier 1,Organic Direct
+CUST_1300,2025-10-04,Male,59,Tier 3,Organic Direct
+CUST_1301,2025-10-31,Male,45,Tier 3,Referral
+CUST_1302,2025-05-15,Female,48,Tier 3,Referral
+CUST_1303,2025-07-14,Male,26,Tier 3,Social Media
+CUST_1304,2025-05-08,Male,46,Tier 3,Social Media
+CUST_1305,2025-02-02,Female,31,Tier 2,Paid Ads
+CUST_1306,2025-06-25,Female,57,Tier 1,Referral
+CUST_1307,2025-01-22,Male,58,Tier 1,Social Media
+CUST_1308,2025-08-26,Female,39,Tier 3,Paid Ads
+CUST_1309,2025-06-07,Male,28,Tier 2,Paid Ads
+CUST_1310,2025-02-07,Male,40,Tier 3,Paid Ads
+CUST_1311,2025-08-18,Male,18,Tier 2,Social Media
+CUST_1312,2025-12-31,Female,63,Tier 1,Referral
+CUST_1313,2025-02-20,Female,54,Tier 1,Organic Direct
+CUST_1314,2025-09-21,Female,38,Tier 2,Paid Ads
+CUST_1315,2025-10-10,Female,43,Tier 2,Social Media
+CUST_1316,2025-01-27,Female,63,Tier 1,Social Media
+CUST_1317,2025-08-14,Male,53,Tier 2,Organic Direct
+CUST_1318,2025-10-04,Male,40,Tier 1,Organic Direct
+CUST_1319,2025-10-13,Male,18,Tier 2,Social Media
+CUST_1320,2025-04-07,Male,57,Tier 1,Referral
+CUST_1321,2025-10-11,Female,32,Tier 3,Organic Direct
+CUST_1322,2025-11-13,Male,38,Tier 1,Social Media
+CUST_1323,2025-10-31,Female,64,Tier 2,Organic Direct
+CUST_1324,2025-05-27,Male,26,Tier 1,Referral
+CUST_1325,2025-01-04,Female,26,Tier 1,Paid Ads
+CUST_1326,2025-02-04,Female,27,Tier 1,Organic Direct
+CUST_1327,2025-07-11,Male,43,Tier 2,Referral
+CUST_1328,2025-02-18,Male,58,Tier 2,Social Media
+CUST_1329,2025-01-17,Male,52,Tier 1,Organic Direct
+CUST_1330,2025-06-21,Male,42,Tier 2,Organic Direct
+CUST_1331,2025-08-08,Female,43,Tier 3,Social Media
+CUST_1332,2025-06-07,Male,28,Tier 3,Paid Ads
+CUST_1333,2025-02-15,Male,55,Tier 1,Social Media
+CUST_1334,2025-01-06,Female,19,Tier 2,Organic Direct
+CUST_1335,2025-04-09,Male,24,Tier 1,Social Media
+CUST_1336,2025-08-21,Male,35,Tier 1,Referral
+CUST_1337,2025-02-06,Male,44,Tier 3,Social Media
+CUST_1338,2025-10-07,Male,51,Tier 1,Organic Direct
+CUST_1339,2025-12-15,Male,44,Tier 2,Social Media
+CUST_1340,2025-10-29,Female,34,Tier 2,Paid Ads
+CUST_1341,2025-06-30,Male,60,Tier 2,Social Media
+CUST_1342,2025-04-05,Male,61,Tier 2,Paid Ads
+CUST_1343,2025-04-09,Male,41,Tier 1,Referral
+CUST_1344,2025-07-07,Male,42,Tier 1,Paid Ads
+CUST_1345,2025-04-26,Male,24,Tier 2,Social Media
+CUST_1346,2025-07-10,Female,23,Tier 1,Organic Direct
+CUST_1347,2025-09-10,Male,41,Tier 1,Paid Ads
+CUST_1348,2025-06-10,Female,50,Tier 1,Referral
+CUST_1349,2025-09-13,Female,46,Tier 1,Paid Ads
+CUST_1350,2025-11-19,Male,60,Tier 1,Paid Ads
+CUST_1351,2025-05-08,Male,39,Tier 1,Paid Ads
+CUST_1352,2025-01-18,Male,43,Tier 2,Referral
+CUST_1353,2025-10-08,Male,45,Tier 2,Social Media
+CUST_1354,2025-08-11,Female,38,Tier 3,Paid Ads
+CUST_1355,2025-02-23,Male,24,Tier 1,Paid Ads
+CUST_1356,2025-02-27,Male,34,Tier 1,Organic Direct
+CUST_1357,2025-11-19,Male,37,Tier 1,Referral
+CUST_1358,2025-12-26,Male,58,Tier 2,Paid Ads
+CUST_1359,2025-06-23,Male,37,Tier 2,Referral
+CUST_1360,2025-10-07,Male,39,Tier 1,Paid Ads
+CUST_1361,2025-04-24,Female,45,Tier 3,Social Media
+CUST_1362,2025-10-15,Female,57,Tier 1,Social Media
+CUST_1363,2025-12-08,Male,24,Tier 2,Paid Ads
+CUST_1364,2025-05-31,Male,18,Tier 2,Social Media
+CUST_1365,2025-05-07,Male,49,Tier 3,Paid Ads
+CUST_1366,2025-06-04,Female,30,Tier 2,Social Media
+CUST_1367,2025-09-30,Male,47,Tier 3,Organic Direct
+CUST_1368,2025-04-14,Female,40,Tier 1,Organic Direct
+CUST_1369,2025-10-26,Male,36,Tier 3,Organic Direct
+CUST_1370,2025-09-03,Male,49,Tier 1,Referral
+CUST_1371,2025-06-25,Male,47,Tier 3,Referral
+CUST_1372,2025-02-08,Male,46,Tier 2,Organic Direct
+CUST_1373,2025-06-19,Female,62,Tier 3,Referral
+CUST_1374,2025-09-04,Female,46,Tier 2,Social Media
+CUST_1375,2025-01-26,Male,47,Tier 2,Paid Ads
+CUST_1376,2025-12-21,Male,33,Tier 2,Paid Ads
+CUST_1377,2025-11-02,Female,57,Tier 2,Paid Ads
+CUST_1378,2025-01-13,Female,36,Tier 1,Organic Direct
+CUST_1379,2025-11-12,Female,35,Tier 1,Referral
+CUST_1380,2025-11-09,Female,18,Tier 1,Social Media
+CUST_1381,2025-02-05,Male,31,Tier 1,Social Media
+CUST_1382,2025-06-22,Female,64,Tier 3,Organic Direct
+CUST_1383,2025-01-20,Male,19,Tier 1,Social Media
+CUST_1384,2025-11-17,Female,45,Tier 3,Social Media
+CUST_1385,2025-09-21,Female,47,Tier 1,Social Media
+CUST_1386,2025-05-22,Female,55,Tier 1,Social Media
+CUST_1387,2025-05-23,Female,21,Tier 3,Referral
+CUST_1388,2025-04-02,Female,18,Tier 2,Social Media
+CUST_1389,2025-12-20,Male,25,Tier 2,Paid Ads
+CUST_1390,2025-11-18,Male,46,Tier 2,Organic Direct
+CUST_1391,2025-10-15,Female,56,Tier 2,Referral
+CUST_1392,2025-08-03,Female,20,Tier 1,Social Media
+CUST_1393,2025-12-08,Male,49,Tier 3,Referral
+CUST_1394,2025-02-20,Female,27,Tier 3,Social Media
+CUST_1395,2025-06-02,Female,27,Tier 2,Paid Ads
+CUST_1396,2025-07-05,Male,36,Tier 1,Organic Direct
+CUST_1397,2025-03-04,Female,63,Tier 2,Social Media
+CUST_1398,2025-07-09,Female,51,Tier 1,Social Media
+CUST_1399,2025-05-05,Male,50,Tier 1,Social Media
+CUST_1400,2025-05-30,Male,40,Tier 1,Social Media
+CUST_1401,2025-11-10,Male,45,Tier 2,Organic Direct
+CUST_1402,2025-02-27,Female,49,Tier 3,Organic Direct
+CUST_1403,2025-12-08,Male,24,Tier 2,Paid Ads
+CUST_1404,2025-11-01,Male,46,Tier 2,Organic Direct
+CUST_1405,2025-06-29,Male,25,Tier 2,Social Media
+CUST_1406,2025-06-19,Male,18,Tier 1,Paid Ads
+CUST_1407,2025-11-22,Male,20,Tier 1,Paid Ads
+CUST_1408,2025-09-28,Male,41,Tier 3,Paid Ads
+CUST_1409,2025-02-23,Female,40,Tier 1,Social Media
+CUST_1410,2025-04-11,Female,25,Tier 3,Referral
+CUST_1411,2025-09-21,Male,64,Tier 2,Social Media
+CUST_1412,2025-02-22,Male,54,Tier 2,Organic Direct
+CUST_1413,2025-03-01,Male,20,Tier 2,Organic Direct
+CUST_1414,2025-04-18,Female,50,Tier 2,Social Media
+CUST_1415,2025-01-05,Female,45,Tier 3,Social Media
+CUST_1416,2025-04-13,Female,64,Tier 3,Paid Ads
+CUST_1417,2025-07-15,Female,25,Tier 2,Social Media
+CUST_1418,2025-09-19,Female,51,Tier 1,Paid Ads
+CUST_1419,2025-12-31,Female,52,Tier 2,Organic Direct
+CUST_1420,2025-12-16,Female,49,Tier 3,Paid Ads
+CUST_1421,2025-02-16,Female,41,Tier 1,Social Media
+CUST_1422,2025-12-21,Female,31,Tier 2,Organic Direct
+CUST_1423,2025-11-07,Male,49,Tier 2,Referral
+CUST_1424,2025-11-04,Male,63,Tier 2,Paid Ads
+CUST_1425,2025-05-24,Male,60,Tier 1,Organic Direct
+CUST_1426,2025-09-26,Male,33,Tier 2,Paid Ads
+CUST_1427,2025-05-04,Female,21,Tier 3,Organic Direct
+CUST_1428,2025-04-16,Female,54,Tier 1,Organic Direct
+CUST_1429,2025-06-07,Male,38,Tier 1,Paid Ads
+CUST_1430,2025-05-27,Female,31,Tier 3,Referral
+CUST_1431,2025-05-25,Male,48,Tier 1,Organic Direct
+CUST_1432,2025-04-30,Female,35,Tier 3,Organic Direct
+CUST_1433,2025-11-15,Male,24,Tier 2,Organic Direct
+CUST_1434,2025-10-02,Female,27,Tier 1,Referral
+CUST_1435,2025-04-02,Female,24,Tier 3,Referral
+CUST_1436,2025-02-27,Male,50,Tier 2,Social Media
+CUST_1437,2025-12-12,Female,40,Tier 2,Paid Ads
+CUST_1438,2025-08-17,Male,38,Tier 1,Referral
+CUST_1439,2025-04-27,Male,36,Tier 2,Paid Ads
+CUST_1440,2025-11-14,Male,36,Tier 1,Social Media
+CUST_1441,2025-10-06,Male,53,Tier 1,Paid Ads
+CUST_1442,2025-05-07,Female,46,Tier 3,Referral
+CUST_1443,2025-05-09,Female,35,Tier 1,Paid Ads
+CUST_1444,2025-02-27,Female,19,Tier 2,Referral
+CUST_1445,2025-05-02,Male,18,Tier 1,Paid Ads
+CUST_1446,2025-01-01,Female,64,Tier 3,Referral
+CUST_1447,2025-08-27,Male,22,Tier 1,Referral
+CUST_1448,2025-10-17,Female,37,Tier 3,Paid Ads
+CUST_1449,2025-04-06,Female,28,Tier 2,Social Media
+CUST_1450,2025-05-06,Female,59,Tier 1,Organic Direct
+CUST_1451,2025-04-28,Male,19,Tier 1,Social Media
+CUST_1452,2025-02-17,Female,20,Tier 1,Paid Ads
+CUST_1453,2025-03-30,Female,40,Tier 2,Social Media
+CUST_1454,2025-08-25,Male,29,Tier 1,Referral
+CUST_1455,2025-09-29,Female,37,Tier 3,Organic Direct
+CUST_1456,2025-07-08,Male,22,Tier 2,Paid Ads
+CUST_1457,2025-07-11,Female,54,Tier 1,Paid Ads
+CUST_1458,2025-03-10,Male,55,Tier 2,Paid Ads
+CUST_1459,2025-10-05,Male,47,Tier 2,Organic Direct
+CUST_1460,2025-12-15,Female,26,Tier 1,Referral
+CUST_1461,2025-09-04,Male,51,Tier 1,Paid Ads
+CUST_1462,2025-03-17,Male,61,Tier 1,Social Media
+CUST_1463,2025-06-03,Male,52,Tier 2,Paid Ads
+CUST_1464,2025-05-24,Male,39,Tier 2,Paid Ads
+CUST_1465,2025-03-27,Male,61,Tier 2,Paid Ads
+CUST_1466,2025-07-04,Male,41,Tier 3,Paid Ads
+CUST_1467,2025-10-12,Female,34,Tier 3,Referral
+CUST_1468,2025-08-08,Male,27,Tier 2,Social Media
+CUST_1469,2025-03-10,Male,47,Tier 3,Referral
+CUST_1470,2025-02-16,Female,63,Tier 1,Social Media
+CUST_1471,2025-04-04,Female,40,Tier 1,Paid Ads
+CUST_1472,2025-08-26,Female,49,Tier 1,Organic Direct
+CUST_1473,2025-07-23,Female,34,Tier 1,Referral
+CUST_1474,2025-08-06,Female,34,Tier 2,Organic Direct
+CUST_1475,2025-12-07,Female,31,Tier 3,Referral
+CUST_1476,2025-02-08,Female,26,Tier 1,Paid Ads
+CUST_1477,2025-04-10,Male,57,Tier 1,Referral
+CUST_1478,2025-10-16,Male,19,Tier 2,Paid Ads
+CUST_1479,2025-09-11,Female,62,Tier 3,Referral
+CUST_1480,2025-08-10,Male,42,Tier 1,Paid Ads
+CUST_1481,2025-12-23,Male,56,Tier 2,Paid Ads
+CUST_1482,2025-01-23,Male,26,Tier 1,Social Media
+CUST_1483,2025-09-07,Female,39,Tier 1,Paid Ads
+CUST_1484,2025-01-10,Female,60,Tier 3,Social Media
+CUST_1485,2025-09-03,Male,63,Tier 3,Paid Ads
+CUST_1486,2025-11-21,Female,21,Tier 1,Organic Direct
+CUST_1487,2025-04-10,Male,43,Tier 3,Paid Ads
+CUST_1488,2025-10-17,Male,46,Tier 2,Organic Direct
+CUST_1489,2025-06-29,Male,62,Tier 3,Organic Direct
+CUST_1490,2025-08-11,Male,51,Tier 2,Paid Ads
+CUST_1491,2025-09-07,Female,40,Tier 2,Organic Direct
+CUST_1492,2025-05-27,Female,54,Tier 2,Social Media
+CUST_1493,2025-04-06,Female,28,Tier 2,Referral
+CUST_1494,2025-09-14,Male,23,Tier 1,Paid Ads
+CUST_1495,2025-11-21,Female,35,Tier 1,Organic Direct
+CUST_1496,2025-01-04,Male,38,Tier 1,Paid Ads
+CUST_1497,2025-01-16,Female,59,Tier 2,Social Media
+CUST_1498,2025-10-07,Male,53,Tier 1,Paid Ads
+CUST_1499,2025-12-02,Male,58,Tier 2,Paid Ads
