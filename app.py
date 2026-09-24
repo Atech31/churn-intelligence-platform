@@ -5,14 +5,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
-import sqlite3
+from sklearn.metrics import confusion_matrix, roc_curve, auc
 
 st.set_page_config(page_title="Churn & Revenue Intelligence Engine", layout="wide")
 
 st.title("🛒 E-Commerce Customer Retention & Churn Analytics")
 
-# --- DATA GENERATION & LOADING ---
+# --- 1. DATA GENERATION & LOADING ---
 @st.cache_data
 def load_data():
     np.random.seed(42)
@@ -34,7 +33,6 @@ def load_data():
             })
     df_orders = pd.DataFrame(orders)
     
-    # Process directly in Pandas to avoid SQLite thread/caching connection errors
     rfm_df = df_orders.groupby('customer_id').agg(
         frequency=('order_id', 'count'),
         monetary=('order_amount_inr', 'sum'),
@@ -55,7 +53,17 @@ def load_data():
 
 rfm_df = load_data()
 
-# --- MODEL TRAINING ---
+# --- 2. NAVIGATION & FILTERS ---
+page = st.sidebar.radio("Navigation", ["📈 Dashboard & Curves", "🤖 Executive Control Panel", "📊 Model Evaluation & Metrics"])
+
+st.sidebar.markdown("### Filters")
+city_filter = st.sidebar.multiselect("City Tier", options=rfm_df['city_tier'].unique(), default=rfm_df['city_tier'].unique())
+channel_filter = st.sidebar.multiselect("Signup Channel", options=rfm_df['signup_channel'].unique(), default=rfm_df['signup_channel'].unique())
+
+# Define filtered_df BEFORE using it in model training or pages
+filtered_df = rfm_df[(rfm_df['city_tier'].isin(city_filter)) & (rfm_df['signup_channel'].isin(channel_filter))]
+
+# --- 3. MODEL TRAINING ---
 X = filtered_df[['frequency', 'monetary', 'recency']]
 y = filtered_df['is_churned']
 
@@ -68,7 +76,7 @@ if len(filtered_df) > 10 and len(y.unique()) > 1:
 else:
     st.warning("Not enough data points selected to train the model. Please expand your filters.")
 
-# --- PAGE 1: DASHBOARD ---
+# --- 4. PAGE RENDERING ---
 if page == "📈 Dashboard & Curves":
     st.header("Advanced Curves & Analytics")
     col1, col2 = st.columns(2)
@@ -92,7 +100,6 @@ if page == "📈 Dashboard & Curves":
         fig6 = px.pie(filtered_df, names="is_churned", title="6. Overall Churn Ratio")
         st.plotly_chart(fig6, use_container_width=True)
 
-# --- PAGE 2: EXECUTIVE CONTROL PANEL ---
 elif page == "🤖 Executive Control Panel":
     st.header("Executive Control Panel")
     with st.expander("🤖 Generate AI Executive Strategy Briefing", expanded=True):
@@ -120,7 +127,6 @@ elif page == "🤖 Executive Control Panel":
             mime="text/html"
         )
 
-# --- PAGE 3: MODEL EVALUATION & METRICS ---
 elif page == "📊 Model Evaluation & Metrics":
     st.header("Model Evaluation & Metrics")
     if 'y_test' in locals():
