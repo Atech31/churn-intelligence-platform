@@ -27,42 +27,33 @@ def load_data():
     for cid in customers['customer_id']:
         for _ in range(np.random.poisson(lam=4)):
             orders.append({
+                'order_id': f"ORD_{np.random.randint(100000, 999999)}",
                 'customer_id': cid,
-                'order_date': pd.Timestamp('2025-06-01') + pd.Timedelta(days=int(np.random.randint(0, 450))),
+                'order_date': (pd.Timestamp('2025-06-01') + pd.Timedelta(days=int(np.random.randint(0, 450)))).strftime('%Y-%m-%d'),
                 'order_amount_inr': round(float(np.random.exponential(scale=1500) + 200), 2)
             })
     df_orders = pd.DataFrame(orders)
     
-    conn = sqlite3.connect(":memory:")
-    customers.to_sql("customers", conn, index=False)
-    df_orders.to_sql("transactions", conn, index=False)
+    # Process directly in Pandas to avoid SQLite thread/caching connection errors
+    rfm_df = df_orders.groupby('customer_id').agg(
+        frequency=('order_id', 'count'),
+        monetary=('order_amount_inr', 'sum'),
+        last_order=('order_date', 'max')
+    ).reset_index()
     
-    query = """
-    SELECT 
-        c.customer_id, c.city_tier, c.signup_channel,
-        COUNT(t.order_id) AS frequency,
-        COALESCE(SUM(t.order_amount_inr), 0) AS monetary,
-        CAST((JULIANDAY('2026-09-01') - JULIANDAY(MAX(t.order_date))) AS INT) AS recency
-    FROM customers c
-    LEFT JOIN transactions t ON c.customer_id = t.customer_id
-    GROUP BY c.customer_id
-    """
-    rfm_df = pd.read_sql(query, conn)
-    rfm_df['recency'] = rfm_df['recency'].fillna(365)
+    rfm_df = customers.merge(rfm_df, on='customer_id', how='left')
+    rfm_df['frequency'] = rfm_df['frequency'].fillna(0)
+    rfm_df['monetary'] = rfm_df['monetary'].fillna(0.0)
+    
+    ref_date = pd.Timestamp('2026-09-01')
+    rfm_df['recency'] = rfm_df['last_order'].apply(
+        lambda x: (ref_date - pd.Timestamp(x)).days if pd.notnull(x) else 365
+    )
     rfm_df['is_churned'] = (rfm_df['recency'] > 90).astype(int)
+    
     return rfm_df
 
 rfm_df = load_data()
-
-# --- NAVIGATION SIDEBAR ---
-page = st.sidebar.radio("Navigation", ["📈 Dashboard & Curves", "🤖 Executive Control Panel", "📊 Model Evaluation & Metrics"])
-
-# --- TOP FILTERS ---
-st.sidebar.markdown("### Filters")
-city_filter = st.sidebar.multiselect("City Tier", options=rfm_df['city_tier'].unique(), default=rfm_df['city_tier'].unique())
-channel_filter = st.sidebar.multiselect("Signup Channel", options=rfm_df['signup_channel'].unique(), default=rfm_df['signup_channel'].unique())
-
-filtered_df = rfm_df[(rfm_df['city_tier'].isin(city_filter)) & (rfm_df['signup_channel'].isin(channel_filter))]
 
 # --- MODEL TRAINING ---
 X = filtered_df[['frequency', 'monetary', 'recency']]
